@@ -1,0 +1,303 @@
+/* --- VARIABLES --- */
+:root {
+    /* Exact colors sampled from images */
+    --color-red: #FE3B55; 
+    --color-dark: #1E1E1E;
+    --color-gray: #5A5A5A;
+    --color-bg-hero: linear-gradient(180deg, #FFF0F3 0%, #FFF8FA 100%);
+    --color-bg-mobile: #FFF0F5;
+    --color-teal: #00CBB8;
+    --shadow-soft: 0px 15px 40px rgba(0, 0, 0, 0.08);
+    --shadow-btn: 0px 8px 20px rgba(254, 59, 85, 0.25);
+    
+    /* Font Settings */
+    --font-main: 'Poppins', sans-serif;
+    --container-width: 1140px;
+}
+
+/* --- RESET --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-main); color: var(--color-dark); overflow-x: hidden; }
+a { text-decoration: none; color: inherit; transition: 0.2s; }
+ul { list-style: none; }
+img { display: block; max-width: 100%; }
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- BUTTONS (Global) --- */
+.btn {
+    display: inline-block;
+    padding: 14px 34px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.btn-red {
+    background-color: var(--color-red);
+    color: white;
+    box-shadow: var(--shadow-btn);
+    border: none;
+}
+.btn-red:hover { transform: translateY(-2px); box-shadow: 0px 12px 25px rgba(254, 59, 85, 0.35); }
+
+.btn-outline {
+    background: transparent;
+    color: var(--color-red);
+    border: 2px solid var(--color-red);
+    font-weight: 600;
+}
+.btn-outline:hover { background-color: #FFF0F3; }
+
+/* --- NAVBAR --- */
+.navbar {
+    padding: 18px 0;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo img { height: 48px; }
+
+.desktop-menu { display: flex; gap: 40px; }
+.desktop-menu a { font-size: 16px; color: var(--color-dark); font-weight: 400; }
+.desktop-menu a:hover { color: var(--color-red); }
+
+.desktop-btn { display: inline-block; }
+.hamburger { display: none; font-size: 26px; color: var(--color-red); cursor: pointer; }
+
+/* --- MOBILE MENU OVERLAY (Image 2 style) --- */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: var(--color-bg-mobile);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+.mobile-menu-overlay.active { transform: translateX(0); }
+
+.mobile-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; }
+.close-icon { font-size: 30px; color: var(--color-red); cursor: pointer; }
+
+.mobile-nav-list li { margin-bottom: 30px; }
+.mobile-nav-list a {
+    display: flex; align-items: center; gap: 18px;
+    font-size: 18px; font-weight: 500; color: #333;
+}
+.nav-icon {
+    width: 24px; text-align: center; color: #000; font-size: 18px;
+}
+.mobile-nav-list a.active { color: var(--color-red); }
+.mobile-nav-list a.active .nav-icon { color: var(--color-red); }
+
+.mobile-footer-btn { margin-top: auto; }
+.full-width { width: 100%; padding: 16px; font-size: 16px; }
+
+/* --- HERO SECTION --- */
+.hero-section {
+    background: var(--color-bg-hero);
+    padding: 60px 0 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content h1 {
+    font-size: 64px; /* Big font for desktop */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: #111;
+}
+
+.highlight-box {
+    position: relative;
+    display: inline-block;
+    color: var(--color-red);
+}
+
+.underline-vector {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+}
+
+.hero-subtext {
+    font-size: 17px;
+    color: var(--color-gray);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 550px;
+}
+
+.hero-actions { display: flex; gap: 20px; }
+
+/* Image Area */
+.hero-visual { position: relative; display: flex; justify-content: center; }
+.gradient-blob {
+    position: absolute;
+    width: 550px; height: 550px;
+    background: radial-gradient(circle, #FFE4E9 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+.main-img { z-index: 2; position: relative; width: 100%; max-width: 500px; }
+
+/* Floating Badges */
+.float-badge {
+    position: absolute;
+    background: white;
+    padding: 14px 24px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.badge-rating { top: 30%; left: -30px; }
+.rating-val { font-size: 34px; font-weight: 700; color: var(--color-teal); }
+.rating-det .stars { color: #FFB800; font-size: 13px; display: block; margin-bottom: 2px; }
+.rating-det .lbl { font-size: 13px; font-weight: 600; }
+
+.badge-stats { bottom: 15%; right: -10px; padding: 18px; }
+.icon-wrap {
+    width: 45px; height: 45px; background: var(--color-red); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; color: white; font-size: 20px;
+}
+.stats-det strong { font-size: 22px; display: block; line-height: 1; margin-bottom: 2px; }
+.stats-det span { font-size: 12px; color: var(--color-gray); white-space: nowrap; }
+
+/* --- FEATURES SECTION --- */
+.features-section { padding: 100px 0; background: #fff; }
+.features-header { text-align: center; max-width: 850px; margin: 0 auto 70px; }
+
+.pill {
+    display: inline-block;
+    background: #FFE5E9;
+    color: #444;
+    padding: 8px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.features-header h2 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.red-text { color: var(--color-red); }
+
+/* Features Grid */
+.features-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.f-card {
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    /* Clean look: No border, just shadow on hover or subtle shadow always */
+    box-shadow: 0 5px 30px rgba(0,0,0,0.02); 
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.f-card:hover {
+    transform: translateY(-10px);
+    border-color: #ffe5e9;
+    box-shadow: var(--shadow-soft);
+}
+
+.f-icon {
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 25px;
+}
+.f-icon img { max-height: 100%; }
+
+.f-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
+.f-card p { font-size: 14px; color: var(--color-gray); line-height: 1.6; }
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+/* 1. Tablet (1024px) */
+@media (max-width: 1024px) {
+    .hero-content h1 { font-size: 48px; }
+    .features-header h2 { font-size: 34px; }
+    .features-cards { grid-template-columns: repeat(2, 1fr); } /* 2x2 Grid */
+    .container { padding: 0 30px; }
+}
+
+/* 2. Mobile (768px) - Matches Image 3 & 1 */
+@media (max-width: 768px) {
+    /* Hide Desktop Nav */
+    .desktop-menu, .desktop-btn { display: none; }
+    .hamburger { display: block; }
+    
+    /* Hero Stacking */
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 50px;
+    }
+    
+    /* Typography Fixes for Mobile */
+    .hero-content h1 { font-size: 38px; }
+    .hero-subtext { font-size: 15px; margin: 0 auto 30px; }
+
+    /* Button Stacking (Image 3) */
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+    .btn { width: 100%; }
+
+    /* Reorder: Image First or Text First? Usually visual preference.
+       Based on standard UX, Text top is fine, but Image top is also common. 
+       Let's keep Text Top as per code flow, but fix spacing. */
+    .hero-content { order: 1; }
+    .hero-visual { order: 2; margin-top: 10px; }
+
+    /* Floating Badges Mobile Position */
+    .badge-rating { left: 0; padding: 10px 15px; }
+    .rating-val { font-size: 26px; }
+    .badge-stats { right: 0; padding: 12px; }
+    .stats-det strong { font-size: 18px; }
+
+    /* Features Stacking */
+    .features-cards { grid-template-columns: 1fr; gap: 40px; }
+    .features-header h2 { font-size: 28px; }
+    .pill { margin-bottom: 15px; }
+    
+    .gradient-blob { width: 350px; height: 350px; }
+}
