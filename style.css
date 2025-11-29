@@ -4,8 +4,8 @@
     --primary-teal: #00D0B0;      /* Matching the 4.9 Score Color */
     --text-black: #111111;
     --text-grey: #555555;
-    --bg-hero-gradient: linear-gradient(100deg, #FFF0F4 0%, #FFFFFF 100%);
-    --bg-sidebar: #FFF0F5;        /* Light Pink Sidebar Background */
+    --bg-hero-gradient: linear-gradient(100deg, #f6c4d1 0%, #FFFFFF 100%);
+    --bg-sidebar: #fdc2d6;        /* Light Pink Sidebar Background */
     --shadow-card: 0 10px 40px rgba(0,0,0,0.06);
     --font-main: 'Poppins', sans-serif;
 }
@@ -88,8 +88,8 @@ img { display: block; max-width: 100%; }
 /* --- 4. MOBILE SIDEBAR (Exactly Image 3) --- */
 .mobile-sidebar {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0; right: 0;
+    width: 91%; height: 100%;
     background-color: var(--bg-sidebar);
     z-index: 2000;
     display: flex;
